@@ -120,13 +120,5 @@ Available genres:
 pytest
 ```
 
-## Error Handling
-
-The API includes proper error handling for:
-
-- Non-existent books
-- Invalid book IDs
-- Invalid genre types
-- Malformed requests
 
 
