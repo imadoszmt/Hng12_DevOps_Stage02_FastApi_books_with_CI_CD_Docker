@@ -119,6 +119,5 @@ Available genres:
 ```bash
 pytest
 ```
-## Deployement
 
 
