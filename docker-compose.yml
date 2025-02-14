@@ -3,7 +3,7 @@ services:
     image: imadenos/fastapiwithnginx:latest
     container_name: fastapi-app
     restart: unless-stopped
-    expose:
+    ports:
       - "8000:8000"
   
   nginx:
