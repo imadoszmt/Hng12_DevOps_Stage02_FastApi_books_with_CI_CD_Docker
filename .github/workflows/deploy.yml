@@ -43,15 +43,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Ensure Docker is running
+      - name: Ensure Docker is installed and running
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           script: |
+            sudo apt update
+            sudo apt install -y docker.io
             sudo systemctl start docker
             sudo systemctl enable docker
+            sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+            sudo chmod +x /usr/local/bin/docker-compose
 
       - name: copy file via ssh key
         uses: appleboy/scp-action@v0.1.4
