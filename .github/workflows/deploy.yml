@@ -49,7 +49,7 @@ jobs:
           key: ${{ secrets.KEY }}
           source: "docker-compose.yml, nginx.conf"
           target: /home/ubuntu/Hng12_DevOps_Stage02_FastApi_books_with_CI_CD_Docker
-      - name: run docker compose
+      - name: run docker-compose
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.HOST }}
