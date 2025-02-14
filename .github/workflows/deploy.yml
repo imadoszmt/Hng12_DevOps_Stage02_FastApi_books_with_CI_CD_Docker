@@ -56,7 +56,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           script: |
-            /usr/bin/docker compose down
-            /usr/bin/docker image prune -af
-            /usr/bin/docker compose pull
-            /usr/bin/docker compose up -d
+            docker compose down
+            docker image prune -af
+            docker compose pull
+            docker compose up -d
