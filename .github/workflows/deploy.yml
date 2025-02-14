@@ -48,7 +48,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           source: "docker-compose.yml, nginx.conf"
-          target: .
+          target: /home/ubuntu/Hng12_DevOps_Stage02_FastApi_books_with_CI_CD_Docker
       - name: run docker compose
         uses: appleboy/ssh-action@v1.0.0
         with:
@@ -56,7 +56,8 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           script: |
-            docker compose down
+            cd /home/ubuntu/Hng12_DevOps_Stage02_FastApi_books_with_CI_CD_Docker
+            docker-compose down
             docker image prune -af
-            docker compose pull
-            docker compose up -d
+            docker-compose pull
+            docker-compose up -d
